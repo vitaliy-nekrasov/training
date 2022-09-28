@@ -1,5 +1,3 @@
-import log from './module-01';
+const arrays = [1, [[2], [3]], [[[[4]]]]];
 
-console.log('log', log);
-
-console.log('Index');
+console.log(arrays.flatMap(array => array));
