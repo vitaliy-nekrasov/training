@@ -41,3 +41,25 @@ result
         numberEl.textContent = vote.toFixed(1);
       });
   });
+
+function totalTiles(roomWidth, roomLength, gap) {
+  tileWidth = 200;
+  tileLength = 300;
+  // verticalLayout
+  howManyTilesForRoomWidthVer = roomWidth / (tileWidth + gap);
+  howManyTilesForRoomLengthVer = roomLength / (tileLength + gap);
+  totalTilesForVerticalLayout = howManyTilesForRoomLengthVer * howManyTilesForRoomWidthVer;
+  // horizontalLayout
+  howManyTilesForRoomWidthHor = roomWidth / (tileLength + gap);
+  howManyTilesForRoomLengthHor = roomLength / (tileWidth + gap);
+  totalTilesForHorizontalLayout = howManyTilesForRoomLengthHor * howManyTilesForRoomWidthHor;
+  // totalTiles
+  return console.log(
+    `Need ${totalTilesForVerticalLayout} tiles for vertical layout and ${totalTilesForHorizontalLayout} tiles for horizontal layout`
+  );
+}
+
+totalTiles(2000, 3550, 2);
+totalTiles(2000, 3550, 3);
+totalTiles(2000, 3550, 4);
+totalTiles(2000, 3550, 5);
