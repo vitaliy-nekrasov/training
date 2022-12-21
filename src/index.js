@@ -26,7 +26,7 @@ result
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
         imgEl.setAttribute('src', `https://image.tmdb.org/t/p/w400${data.poster_path}`);
         nameEl.textContent = `${data.original_title}`;
         const genres = data.genres;
@@ -42,24 +42,45 @@ result
       });
   });
 
-function totalTiles(roomWidth, roomLength, gap) {
-  tileWidth = 200;
-  tileLength = 300;
-  // verticalLayout
-  howManyTilesForRoomWidthVer = roomWidth / (tileWidth + gap);
-  howManyTilesForRoomLengthVer = roomLength / (tileLength + gap);
-  totalTilesForVerticalLayout = howManyTilesForRoomLengthVer * howManyTilesForRoomWidthVer;
-  // horizontalLayout
-  howManyTilesForRoomWidthHor = roomWidth / (tileLength + gap);
-  howManyTilesForRoomLengthHor = roomLength / (tileWidth + gap);
-  totalTilesForHorizontalLayout = howManyTilesForRoomLengthHor * howManyTilesForRoomWidthHor;
-  // totalTiles
-  return console.log(
-    `Need ${totalTilesForVerticalLayout} tiles for vertical layout and ${totalTilesForHorizontalLayout} tiles for horizontal layout`
-  );
+// function totalTiles(roomWidth, roomLength, gap) {
+//   tileWidth = 200;
+//   tileLength = 300;
+//   // verticalLayout
+//   howManyTilesForRoomWidthVer = roomWidth / (tileWidth + gap);
+//   howManyTilesForRoomLengthVer = roomLength / (tileLength + gap);
+//   totalTilesForVerticalLayout = howManyTilesForRoomLengthVer * howManyTilesForRoomWidthVer;
+//   // horizontalLayout
+//   howManyTilesForRoomWidthHor = roomWidth / (tileLength + gap);
+//   howManyTilesForRoomLengthHor = roomLength / (tileWidth + gap);
+//   totalTilesForHorizontalLayout = howManyTilesForRoomLengthHor * howManyTilesForRoomWidthHor;
+//   // totalTiles
+//   return console.log(
+//     `Need ${totalTilesForVerticalLayout} tiles for vertical layout and ${totalTilesForHorizontalLayout} tiles for horizontal layout`
+//   );
+// }
+
+// totalTiles(2000, 3550, 2);
+// totalTiles(2000, 3550, 3);
+// totalTiles(2000, 3550, 4);
+// totalTiles(2000, 3550, 5);
+
+function highAndLow(numbers) {
+  const arrOfNumbers = numbers.split(' ');
+
+  let minNumber = arrOfNumbers[0];
+  let maxNumber = arrOfNumbers[0];
+
+  for (let i = 0; i < arrOfNumbers.length; i += 1) {
+    if (Number(arrOfNumbers[i]) < Number(minNumber)) {
+      minNumber = arrOfNumbers[i];
+    }
+    if (Number(arrOfNumbers[i]) > Number(maxNumber)) {
+      maxNumber = arrOfNumbers[i];
+    }
+  }
+
+  const result = `${maxNumber} ${minNumber}`;
+  console.log(result);
 }
 
-totalTiles(2000, 3550, 2);
-totalTiles(2000, 3550, 3);
-totalTiles(2000, 3550, 4);
-totalTiles(2000, 3550, 5);
+highAndLow('11 2 3 4 6');
